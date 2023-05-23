@@ -7,5 +7,5 @@ const validateMongoDbId = (id) => {
     }
 }
 
-module.exports = { validateMongoDbId }
+module.exports = validateMongoDbId 
 

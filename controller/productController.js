@@ -69,10 +69,6 @@ const getAllProduct = asyncHandler (async (req, res) => {
         throw new Error(err)
     }
 })
-// find({
-//     brand: req.query.brand,
-//     category: req.query.category
-// });
 
 //Update a product
 const updateProduct = asyncHandler (async (req, res) => {

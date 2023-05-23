@@ -10,6 +10,11 @@ dotenv.config();
 
 const authRouter = require('./routes/authRoutes');
 const productRouter = require('./routes/productRoute')
+const blogRouter = require('./routes/blogRoutes')
+const categoryRouter = require('./routes/categoryRoutes')
+const blogCatRouter = require('./routes/blogCatRoutes')
+const brandRouter = require('./routes/brandRoutes')
+
 const { notFound, errorHandler } = require('./middleware/errorHandle');
 
 app.use(morgan('dev'))
@@ -19,6 +24,10 @@ app.use(cookieParser())
 
 app.use('/api/user', authRouter);
 app.use('/api/product', productRouter);
+app.use('/api/blog', blogRouter);
+app.use('/api/category', categoryRouter);
+app.use('/api/blog-category', blogCatRouter);
+app.use('/api/brand', brandRouter);
 
 app.use(notFound);
 app.use(errorHandler) 
