@@ -32,10 +32,7 @@ var blogSchema = new mongoose.Schema({
     disLikes: [{
         type: mongoose.Schema.Types.ObjectId, ref: 'User'
     }],
-    image: {
-        type: String,
-        default: "https://www.shutterstock.com/image-photo/bloggingblog-concepts-ideas-white-worktable-260nw-1029506242.jpg"
-    },
+    images: [],
     author: {
         type: String,
         default: 'Admin'

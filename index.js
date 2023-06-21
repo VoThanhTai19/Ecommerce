@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 dotenv.config();
