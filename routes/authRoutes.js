@@ -22,7 +22,8 @@ const {
     applyCoupon,
     createOrder,
     getOrders,
-    updateOrderStatus
+    updateOrderStatus,
+    getAllUserOrders
 } = require('../controller/userController');
 const { authMiddleware, isAdmin } = require('../middleware/authMiddleware');
 const { getWishlist } = require('../controller/productController');
@@ -34,6 +35,7 @@ router.get('/logout', logout)
 router.get('/wishlist', authMiddleware, getWishlist)
 router.get('/get-cart', authMiddleware, getUserCart)
 router.get('/get-orders', authMiddleware, getOrders)
+router.get('/get-all-orders', authMiddleware, isAdmin, getAllUserOrders)
 
 router.post('/register', createUser);
 router.post('/forgot-password-token', forgotPasswordToken);
