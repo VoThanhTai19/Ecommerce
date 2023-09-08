@@ -23,7 +23,18 @@ const createProduct = asyncHandler(async (req, res) => {
 const getProduct = asyncHandler(async (req, res) => {
     const { id } = req.params;
     try {
-        const findProduct = await Product.findById(id);
+        const findProduct = await Product.findById(id).populate('color');
+        res.json(findProduct);
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
+//get product by slug
+const getProductBySlug = asyncHandler(async (req, res) => {
+    const { slug } = req.params;
+    try {
+        const findProduct = await Product.findOne({ slug }).populate('color');
         res.json(findProduct);
     } catch (err) {
         throw new Error(err);
@@ -217,4 +228,5 @@ module.exports = {
     addToWishList,
     rating,
     getWishlist,
+    getProductBySlug,
 };

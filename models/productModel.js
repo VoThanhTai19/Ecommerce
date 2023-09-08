@@ -41,7 +41,12 @@ const productSchema = new Schema(
         },
         images: [],
         tags: String,
-        color: [],
+        color: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Color',
+            },
+        ],
         ratings: [
             {
                 star: Number,
