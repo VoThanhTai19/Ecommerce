@@ -23,7 +23,9 @@ const createProduct = asyncHandler(async (req, res) => {
 const getProduct = asyncHandler(async (req, res) => {
     const { id } = req.params;
     try {
-        const findProduct = await Product.findById(id).populate('color');
+        const findProduct = await Product.findById(id)
+            .populate('ratings.postedBy')
+            .populate('color');
         res.json(findProduct);
     } catch (err) {
         throw new Error(err);
@@ -34,7 +36,9 @@ const getProduct = asyncHandler(async (req, res) => {
 const getProductBySlug = asyncHandler(async (req, res) => {
     const { slug } = req.params;
     try {
-        const findProduct = await Product.findOne({ slug }).populate('color');
+        const findProduct = await Product.findOne({ slug })
+            .populate('ratings.postedBy')
+            .populate('color');
         res.json(findProduct);
     } catch (err) {
         throw new Error(err);

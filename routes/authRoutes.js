@@ -18,16 +18,13 @@ const {
     saveAddress,
     userCart,
     getUserCart,
-    // emptyCart,
-    // applyCoupon,
     createOrder,
-    // getOrderByUser,
-    // getOrderByUserId,
-    // updateOrderStatus,
-    // getAllOrders,
+    getAllOrders,
     getUserFromToken,
     removeCart,
     updateProductQuantity,
+    getMyOrders,
+    getOrderByUserId,
 } = require('../controller/userController');
 const { authMiddleware, isAdmin } = require('../middleware/authMiddleware');
 const { getWishlist } = require('../controller/productController');
@@ -38,9 +35,9 @@ router.get('/refresh', handleRefreshToken);
 router.get('/logout', logout);
 router.get('/wishlist', authMiddleware, getWishlist);
 router.get('/get-cart', authMiddleware, getUserCart);
-// router.get('/get-orders', authMiddleware, getOrderByUser);
-// router.get('/get-orders/:id', authMiddleware, getOrderByUserId);
-// router.get('/get-all-orders', getAllOrders);
+router.get('/get-my-orders', authMiddleware, getMyOrders);
+router.get('/get-orders/:id', authMiddleware, getOrderByUserId);
+router.get('/get-all-orders', getAllOrders);
 router.get('/get-user', authMiddleware, getUserFromToken);
 
 router.post('/register', createUser);
